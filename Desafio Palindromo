@@ -1,0 +1,30 @@
+//Crie um programa que verifica se uma palavra ou frase é um palíndromo
+
+//Função para remover caracteres inuteis em relação aos palindromos, que são espaçamentos e sinais de pontuaçao.
+function removerCaracteres(valor){ 
+    let removerPontuacoes = /[.,\/#!?$%\^&\*;@:{}=\-_`~()]/g;
+    let removerEspaco = /\s+/g;
+    valor = valor.replace(removerPontuacoes,'');
+    valor = valor.replace(removerEspaco,'');
+    valor = valor.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    return valor;
+}
+//Função para modificar a palavra ou frase e fazer a comparação necessária se e a palavra/frase é palindromo ou não.
+function palindromo (letra){
+    let dividirLetra = letra.split('');
+    let inverterLetra = dividirLetra.reverse();
+    let juntarLetra = inverterLetra.join('');
+
+    palavraInicial = removerCaracteres(letra).toLowerCase();
+    palavraFinal = removerCaracteres(juntarLetra).toLowerCase();
+
+    console.log(palavraInicial);
+    console.log(palavraFinal);
+
+    if(palavraInicial == palavraFinal){
+        console.log('É palindromo');
+    }else{
+        console.log('Não é palindromo');
+    }
+}
+palindromo('esse'); //Palavra/Frase que será utilizada para a comparação.
