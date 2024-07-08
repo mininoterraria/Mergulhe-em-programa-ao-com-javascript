@@ -1,0 +1,7 @@
+//Crie um programa com uma função que receba três números como argumentos e os retorne em ordem crescente. Exiba os números ordenados
+
+function ordenarNumeros(n1,n2,n3){
+    let numeros = [n1,n2,n3];
+    console.log(numeros.sort((a, b) => a - b));
+}
+ordenarNumeros(32,15,6);
